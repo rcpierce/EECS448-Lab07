@@ -16,7 +16,7 @@
 class LinkedListOfInts : public List<int>
 {
 	public:
-	/** @pre None.
+	/** @pre None.	
 	*   @post An empty list is created.
 	*/
 	LinkedListOfInts();
