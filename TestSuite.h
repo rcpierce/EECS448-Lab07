@@ -2,13 +2,19 @@
 #define TESTSUITE_H
 
 #include <iostream>
-#include <vector>
-#include "Node.h"
 #include "LinkedListOfInts.h"
+
+using namespace std;
 
 
 class TestSuite {
     public:
+
+        // Constructor
+        TestSuite();
+
+        // Destructor
+        ~TestSuite();
 
         // Test to check if the LinkedListOfInts function isEmpty() works properly
         bool testIsEmpty();
@@ -31,9 +37,12 @@ class TestSuite {
         // Test to check if the LinkedListOfInt function removeFront() works properly
         bool testRemoveFront();
 
+        // Runs all of the tests. Called in main().
+        bool runTests();
+
     private:
 
-        LinkedListOfInts linkedList;
+        LinkedListOfInts *linkedList;
 
 };
 
