@@ -9,12 +9,31 @@
 
 class TestSuite {
     public:
-        // Test to check if the LinkedListOfInts function isEmpty() works properly
-        bool testIsEmpty( int linkedList );
 
-        //Test to check if the LinkedListOfInts function 
+        // Test to check if the LinkedListOfInts function isEmpty() works properly
+        bool testIsEmpty();
+
+        // Test to check if the LinkedListOfInts function size() works properly
+        bool testSize();
+
+        // Test to check if the LinkedListOfInt function search() works properly
+        bool testSearch();
+
+        // Test to check if the LinkedListOfInt function addBack() works properly
+        bool testAddBack();
+
+        // Test to check if the LinkedListOfInt function addFront() works properly
+        bool testAddFront();
+
+        // Test to check if the LinkedListOfInt function removeBack() works properly
+        bool testRemoveBack();
+
+        // Test to check if the LinkedListOfInt function removeFront() works properly
+        bool testRemoveFront();
+
     private:
 
+        LinkedListOfInts linkedList;
 
 };
 
