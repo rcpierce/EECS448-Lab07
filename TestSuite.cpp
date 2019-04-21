@@ -37,7 +37,7 @@ bool TestSuite::testAddBack() {
         linkedList->addBack(0);
         linkedListVector = linkedList->toVector();
         if (0 != linkedListVector[0]) {
-            cout << "FAILED: Added the value 0 to the back of an empty list, but 0 was not found." << endl;
+            cout << "testAddBack() FAILED: Added the value 0 to the back of an empty list, but 0 was not found." << endl;
             return false;
         }
 
@@ -46,13 +46,15 @@ bool TestSuite::testAddBack() {
             linkedList->addBack(i);
             linkedListVector = linkedList->toVector();
             if (i != linkedListVector[linkedListVector.size() - 1]) {
-                cout << "FAILED: Value entered at index " << linkedListVector.size() - 1 << " does not equal " << i << "." << endl;
+                cout << "testAddBack() FAILED: Value entered at index " << linkedListVector.size() - 1 << " does not equal " << i << "." << endl;
                 return false;
             }
         }
-        cout << "PASSED" << endl;
+
+        cout << "testAddBack() PASSED" << endl;
         return true;
     }
+    
     LinkedListOfInts *temp = linkedList;
     linkedList = nullptr;
     delete temp;
@@ -69,7 +71,7 @@ bool TestSuite::testAddFront() {
         linkedList->addFront(0);
         linkedListVector = linkedList->toVector();
         if (0 != linkedListVector[0]) {
-            cout << "FAILED: Added the value 0 to the front of an empty list, but 0 was not found." << endl;
+            cout << "testAddFront() FAILED: Added the value 0 to the front of an empty list, but 0 was not found." << endl;
             return false;
         }
 
@@ -78,13 +80,15 @@ bool TestSuite::testAddFront() {
             linkedList->addFront(i);
             linkedListVector = linkedList->toVector();
             if (i != linkedListVector[linkedListVector.size() - 1]) {
-                cout << "FAILED: Value entered at index " << linkedListVector.size() - 1 << " does not equal " << i << "." << endl;
+                cout << "testAddFront() FAILED: Value entered at index " << linkedListVector.size() - 1 << " does not equal " << i << "." << endl;
                 return false;
             }
         }
-        cout << "PASSED" << endl;
+
+        cout << "testAddFront() PASSED" << endl;
         return true;
     }
+
     LinkedListOfInts *temp = linkedList;
     linkedList = nullptr;
     delete temp;
@@ -99,4 +103,9 @@ bool TestSuite::testRemoveBack() {
 // Test to check if the LinkedListOfInt method removeFront() works properly
 bool TestSuite::testRemoveFront() {
 
+}
+
+bool TestSuite::runTests() {
+    testAddBack();
+    testAddFront();
 }
