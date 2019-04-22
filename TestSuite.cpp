@@ -1,4 +1,5 @@
 #include "TestSuite.h"
+#include <stdlib.h> // for rand() function that will be used to test search()
 
 using namespace std;
 
@@ -59,7 +60,7 @@ bool TestSuite::testSize() {
     if (0 == linkedListVector.size()) {
         int linkedListSize = linkedList->size(); 
         if (linkedListVector.size() != linkedListSize) {
-            cout << "testSize() FAILED: vector size was 0, but linked list size was: "<<linkedListSize<< endl;
+            cout << "testSize() FAILED: vector size was 0, but linked list size was: " << linkedListSize << endl;
             checkSizeEmpty = false;
         } else {
             checkSizeEmpty = true;
@@ -92,7 +93,18 @@ bool TestSuite::testSize() {
 
 // Test to check if the LinkedListOfInt method search() works properly
 bool TestSuite::testSearch() {
-    return false;
+    linkedList = new LinkedListOfInts;
+    vector<int> linkedListVector;
+    linkedListVector = linkedList->toVector();
+
+    for (int i = 0; i < 100; i++) {
+        linkedList->addFront(i);
+    }
+    linkedListVector = linkedList->toVector();
+
+    int randomSearch = linkedListVector[rand() % 100];
+
+    return (linkedList->search(randomSearch));
 }
 
 // Test to check if the LinkedListOfInt method addBack() works properly
@@ -147,7 +159,7 @@ bool TestSuite::testAddFront() {
         for (int i = 1; i <= maxSize; i++) {
             linkedList->addFront(i);
             linkedListVector = linkedList->toVector();
-            if (i != linkedListVector[linkedListVector.size() - 1]) {
+            if (i != linkedListVector[0]) {
                 cout << "testAddFront() FAILED: Value entered at index " << linkedListVector.size() - 1 << " does not equal " << i << "." << endl;
                 return false;
             }
@@ -216,13 +228,54 @@ bool TestSuite::testRemoveFront() {
 }
 
 void TestSuite::runTests() {
-    testIsEmpty();
-    testSize();
-    // testSearch();
-    testAddBack();
-    testAddFront();
-    testRemoveBack();
-    testRemoveFront();
+    cout << "Testing isEmpty(): ";
+    if (testIsEmpty()) {
+        cout<< "TRUE" << endl; 
+    } else {
+        cout << "FALSE" << endl;
+    }
+
+    cout << "Testing size(): ";
+    if (testSize()) {
+        cout << "TRUE" << endl;
+    } else {
+        cout << "FALSE" << endl;
+    }
+
+    cout << "Testing search(): ";
+    if (testSearch()) {
+        cout << "TRUE" << endl;
+    } else {
+        cout << "FALSE" << endl;
+    }
+    
+    cout << "Testing addBack(): ";
+    if (testAddBack()) {
+        cout << "TRUE" << endl;
+    } else {
+        cout << "FALSE" << endl;
+    }
+    
+    cout << "Testing addFront(): ";
+    if (testAddFront()) {
+        cout << "TRUE" << endl;
+    } else {
+        cout << "FALSE" << endl;
+    }
+    
+    cout << "Testing removeBack(): ";
+    if (testRemoveBack()) {
+        cout << "TRUE" << endl;
+    } else {
+        cout << "FALSE" << endl;
+    }
+    
+    cout << "Testing removeBack(): ";
+    if (testRemoveBack()) {
+        cout << "TRUE" << endl;
+    } else {
+        cout << "FALSE" << endl;
+    }
 
     cout << "TESTING DONE" << endl;
 }
