@@ -38,7 +38,7 @@ bool TestSuite::testIsEmpty() {
     if(!(linkedListVector.empty())){
         filledCheck = !(linkedList->isEmpty());
         if (!filledCheck) {
-            cout << "testIsEmpty() FAILED: List isn't empty, but isEmpty returned false." << endl;
+            cout << "testIsEmpty() FAILED: List isn't empty, but isEmpty returned true." << endl;
         }
     }
 
@@ -126,7 +126,7 @@ bool TestSuite::testAddBack() {
             linkedList->addBack(i);
             linkedListVector = linkedList->toVector();
             if (i != linkedListVector[linkedListVector.size() - 1]) {
-                cout << "testAddBack() FAILED: Value entered at index " << linkedListVector.size() - 1 << " does not equal " << i << "." << endl;
+                cout << "testAddBack() FAILED: [WANTED VALUE]: "<< i <<"[VALUE RETURNED]: "<<linkedListVector[linkedListVector.size - 1]<<endl; 
                 return false;
             }
         }
