@@ -14,12 +14,80 @@ TestSuite::~TestSuite() {
 
 // Test to check if the LinkedListOfInts method isEmpty() works properly
 bool TestSuite::testIsEmpty() {
-    return false;
+    linkedList = new LinkedListOfInts;
+    vector<int> linkedListVector;
+    linkedListVector = linkedList->toVector();
+    bool emptyCheck = false;
+    bool filledCheck = false; 
+
+    if (linkedListVector.empty()) {
+        emptyCheck = linkedList->isEmpty(); 
+        if (!emptyCheck) {
+            cout << "testIsEmpty() FAILED: List is empty but isEmpty() returned false." << endl;
+        }
+    }
+
+    int maxSize = 5;
+    for (int i = 0; i < maxSize; i++) {
+        linkedList->addBack(i);
+        linkedList->addFront(i);
+    }
+
+    linkedListVector = linkedList->toVector(); 
+    if(!(linkedListVector.empty())){
+        filledCheck = !(linkedList->isEmpty());
+        if (!filledCheck) {
+            cout << "testIsEmpty() FAILED: List isn't empty, but isEmpty returned false." << endl;
+        }
+    }
+
+    LinkedListOfInts *temp = linkedList;
+    linkedList = nullptr;
+    delete temp;
+
+    return ((emptyCheck) && (filledCheck));
 }
 
 // Test to check if the LinkedListOfInts method size() works properly
 bool TestSuite::testSize() {
-    return false;
+    linkedList = new LinkedListOfInts;
+    vector<int> linkedListVector;
+    linkedListVector = linkedList->toVector();
+    bool checkSizeEmpty = false;
+    bool checkSizeNotEmpty = false;
+
+    if (0 == linkedListVector.size()) {
+        int linkedListSize = linkedList->size(); 
+        if (linkedListVector.size() != linkedListSize) {
+            cout << "testSize() FAILED: vector size was 0, but linked list size was: "<<linkedListSize<< endl;
+            checkSizeEmpty = false;
+        } else {
+            checkSizeEmpty = true;
+        }
+    }
+
+    int maxSize = 5;
+    for (int i = 0; i < maxSize; i++) {
+        linkedList->addFront(i);
+        linkedList->addBack(i);
+    }
+    
+    linkedListVector = linkedList->toVector();
+    if ((maxSize * 2) == linkedListVector.size()) {
+        int linkedListSize = linkedList->size(); 
+        if (linkedListVector.size() != linkedListSize) {
+            cout << "testSize() FAILED: size() function for linked list did not equal the output of the size(): "<<linkedListSize<< endl;
+            checkSizeNotEmpty = false;
+        } else {
+            checkSizeNotEmpty = true;
+        }
+    }
+    
+    LinkedListOfInts *temp = linkedList;
+    linkedList = nullptr;
+    delete temp;
+
+    return ((checkSizeEmpty) && (checkSizeNotEmpty));
 }
 
 // Test to check if the LinkedListOfInt method search() works properly
@@ -97,11 +165,53 @@ bool TestSuite::testAddFront() {
 
 // Test to check if the LinkedListOfInt method removeBack() works properly
 bool TestSuite::testRemoveBack() {
+    linkedList = new LinkedListOfInts;
+    vector<int> linkedListVector;
+    linkedListVector = linkedList->toVector();
+
+    for (int i = 0; i < 5; i++) {
+        linkedList->addBack(i);
+    }
+    
+    linkedListVector = linkedList->toVector();
+    int elementAtBack = linkedListVector[linkedListVector.size() - 1];
+    linkedList->removeBack();
+    linkedListVector = linkedList->toVector(); 
+
+    if (linkedListVector[linkedListVector.size() - 1] == elementAtBack) {
+        cout << "testRemoveBack() FAILED: last element of list should have been removed, but was still " << elementAtBack << "." << endl;
+        return false;
+    } else {
+        cout << "testRemoveFront() PASSED" << endl;
+        return true;
+    }
+
     return false;
 }
 
 // Test to check if the LinkedListOfInt method removeFront() works properly
 bool TestSuite::testRemoveFront() {
+    linkedList = new LinkedListOfInts;
+    vector<int> linkedListVector;
+    linkedListVector = linkedList->toVector();
+
+    for (int i = 0; i < 5; i++) {
+        linkedList->addBack(i);
+    }
+    
+    linkedListVector = linkedList->toVector();
+    int elementAtFront = linkedListVector[0];
+    linkedList->removeFront();
+    linkedListVector = linkedList->toVector(); 
+
+    if (linkedListVector[0] == elementAtFront) {
+        cout << "testRemoveFront() FAILED: first element of list should have been removed, but was still " << elementAtFront << "." << endl;
+        return false;
+    } else {
+        cout << "testRemoveFront() PASSED" << endl;
+        return true;
+    }
+
     return false;
 }
 
