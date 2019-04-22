@@ -216,6 +216,13 @@ bool TestSuite::testRemoveFront() {
 }
 
 void TestSuite::runTests() {
+    testIsEmpty();
+    testSize();
+    // testSearch();
     testAddBack();
     testAddFront();
+    testRemoveBack();
+    testRemoveFront();
+
+    cout << "TESTING DONE" << endl;
 }
