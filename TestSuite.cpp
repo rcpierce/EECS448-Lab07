@@ -228,50 +228,66 @@ bool TestSuite::testRemoveFront() {
 }
 
 void TestSuite::runTests() {
+    bool emptyTest = false; 
+    bool sizeTest = false; 
+    bool searchTest = false; 
+    bool addBackTest = false;
+    bool addFrontTest = false; 
+    bool removeBackTest = false;
+    bool removeFrontTest = false; 
+
+
+    emptyTest = testIsEmpty(); 
     cout << "Testing isEmpty(): ";
-    if (testIsEmpty()) {
+    if (emptyTest) {
         cout<< "TRUE" << endl; 
     } else {
         cout << "FALSE" << endl;
     }
 
+    sizeTest = testSize(); 
     cout << "Testing size(): ";
-    if (testSize()) {
+    if (sizeTest) {
         cout << "TRUE" << endl;
     } else {
         cout << "FALSE" << endl;
     }
 
+    searchTest = testSearch(); 
     cout << "Testing search(): ";
-    if (testSearch()) {
+    if (searchTest) {
         cout << "TRUE" << endl;
     } else {
         cout << "FALSE" << endl;
     }
     
+    addBackTest = testAddBack(); 
     cout << "Testing addBack(): ";
-    if (testAddBack()) {
+    if (addBackTest) {
         cout << "TRUE" << endl;
     } else {
         cout << "FALSE" << endl;
     }
     
+    addFrontTest = testAddFront();
     cout << "Testing addFront(): ";
-    if (testAddFront()) {
+    if (addFrontTest) {
         cout << "TRUE" << endl;
     } else {
         cout << "FALSE" << endl;
     }
     
+    removeBackTest = testRemoveBack();
     cout << "Testing removeBack(): ";
-    if (testRemoveBack()) {
+    if (removeBackTest) {
         cout << "TRUE" << endl;
     } else {
         cout << "FALSE" << endl;
     }
     
+    removeFrontTest = testRemoveFront();
     cout << "Testing removeBack(): ";
-    if (testRemoveBack()) {
+    if (removeFrontTest) {
         cout << "TRUE" << endl;
     } else {
         cout << "FALSE" << endl;
