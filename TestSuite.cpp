@@ -14,17 +14,17 @@ TestSuite::~TestSuite() {
 
 // Test to check if the LinkedListOfInts method isEmpty() works properly
 bool TestSuite::testIsEmpty() {
-
+    return false;
 }
 
 // Test to check if the LinkedListOfInts method size() works properly
 bool TestSuite::testSize() {
-
+    return false;
 }
 
 // Test to check if the LinkedListOfInt method search() works properly
 bool TestSuite::testSearch() {
-
+    return false;
 }
 
 // Test to check if the LinkedListOfInt method addBack() works properly
@@ -54,7 +54,7 @@ bool TestSuite::testAddBack() {
         cout << "testAddBack() PASSED" << endl;
         return true;
     }
-    
+
     LinkedListOfInts *temp = linkedList;
     linkedList = nullptr;
     delete temp;
@@ -97,15 +97,15 @@ bool TestSuite::testAddFront() {
 
 // Test to check if the LinkedListOfInt method removeBack() works properly
 bool TestSuite::testRemoveBack() {
-
+    return false;
 }
 
 // Test to check if the LinkedListOfInt method removeFront() works properly
 bool TestSuite::testRemoveFront() {
-
+    return false;
 }
 
-bool TestSuite::runTests() {
+void TestSuite::runTests() {
     testAddBack();
     testAddFront();
 }

@@ -38,7 +38,7 @@ class TestSuite {
         bool testRemoveFront();
 
         // Runs all of the tests. Called in main().
-        bool runTests();
+        void runTests();
 
     private:
 
