@@ -126,7 +126,7 @@ bool TestSuite::testAddBack() {
             linkedList->addBack(i);
             linkedListVector = linkedList->toVector();
             if (i != linkedListVector[linkedListVector.size() - 1]) {
-                cout << "testAddBack() FAILED: [WANTED VALUE]: "<< i <<"[VALUE RETURNED]: "<<linkedListVector[linkedListVector.size - 1]<<endl; 
+                cout << "testAddBack() FAILED: [WANTED VALUE]: "<< i <<"[VALUE RETURNED]: "<<linkedListVector[linkedListVector.size() - 1]<<endl; 
                 return false;
             }
         }

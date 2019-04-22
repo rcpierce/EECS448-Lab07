@@ -1,0 +1,3 @@
+1. isEmpty() always returns TRUE
+2. addBack() adds to the front of the list instead of the back.
+3. removeFront() and removeBack() don't work because isEmpty() always returns TRUE
